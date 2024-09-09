@@ -5,6 +5,7 @@ class BurgersService {
   async createBurger(burgerData) {
     try {
       const burger = await dbContext.Burgers.create(burgerData)
+      return burger
     } catch (error) {
       error(error)
     }
