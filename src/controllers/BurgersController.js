@@ -6,6 +6,7 @@ export class BurgersController extends BaseController {
     super('api/burgers');
     this.router
       .get('', this.getBurgers)
+      .post('', this.createBurger)
   }
 
   async getBurgers(request, response, next) {
@@ -22,6 +23,7 @@ export class BurgersController extends BaseController {
     try {
       const burgerData = request.body
       const burger = await burgersService.createBurger(burgerData)
+      response.send(burger)
     } catch (error) {
       next(error)
     }
