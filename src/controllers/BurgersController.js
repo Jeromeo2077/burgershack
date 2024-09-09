@@ -16,4 +16,14 @@ export class BurgersController extends BaseController {
       next(error)
     }
   }
+
+
+  async createBurger(request, response, next) {
+    try {
+      const burgerData = request.body
+      const burger = await burgersService.createBurger(burgerData)
+    } catch (error) {
+      next(error)
+    }
+  }
 }
